@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: kartoza/postgis:12.0
+    volumes:
+      - ./data:/var/lib/postgresql/data/pgdata
+      - ./schema/pg.sql:/docker-entrypoint-initdb.d/pg.sql
+    ports:
+      - 5432:5432
+  web:
+    build: .
+    ports:
+      - "10000:10000"
+    env_file:
+      - web.env
