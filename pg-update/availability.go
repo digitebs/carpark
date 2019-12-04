@@ -1,3 +1,4 @@
+// Inserts carpark availability API into postgres
 package main
 
 import (

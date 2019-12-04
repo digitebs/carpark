@@ -1,9 +1,13 @@
 ## Getting Started
 The project is written in _golang_ and can be started using `go build && go run`,
-I would recommend using _goland_ from **intellij** when importing this project. 
-For simplicity, this project comes with golang base image for easy build and run.
+I would recommend using _goland_ from _intellij_ when importing this project manually. 
 
- 
+For simplicity, this project comes with _golang_ base image for easy build and run.
+
+### Postgres Schema
+* hdb_carpark_information
+* hdb_carpark_availability
+
 ### Prerequisites
 * docker
 
@@ -15,13 +19,17 @@ For simplicity, this project comes with golang base image for easy build and run
     ```
     you'll get an empty response... :(
 
-3. Ok! lets insert carpark availability data: `docker run --env-file web.env carpark_web pg-update `
+3. Ok! lets insert **hdb_carpark_availability** data: `docker run --env-file web.env carpark_web pg-update `
 
 ## Running the tests
-1. `docker run --env-file web.env carpark_web go test -v ./...`
+Requires postgres db which will be available once the db container is up
 
-#### Updating (optional)
-1. Download the carpark information on the web, place it in the data folder
+```
+docker run --env-file web.env carpark_web go test -v ./...
+```
+
+#### Updating carpark information (optional)
+1. Download the **hdb_carpark_information** on the gov site, place it in the _data_ folder
 2. `docker run --env-file web.env carpark_web csv-import` will convert the geo format of the csv
 
 ## Build with

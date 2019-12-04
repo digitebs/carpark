@@ -1,3 +1,4 @@
+// Converts the original hdb carpark geo data from SVY21 to WGS84
 package main
 
 import (
