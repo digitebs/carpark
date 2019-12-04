@@ -1,27 +1,36 @@
-###### Stack
+## Getting Started
+The project is written in _golang_ and can be started using `go build && go run`,
+I would recommend using _goland_ from **intellij** when importing this project. 
+For simplicity, this project comes with golang base image for easy build and run.
+
+ 
+### Prerequisites
+* docker
+
+### Installing
+1. `docker-compose up` will start 2 container one db and one web
+2. Open browser and run the paste the below
+    ```
+    http://localhost:10000/carparks/nearest?latitude=1.37326&longitude=103.897&page=1&per_page=10
+    ```
+    you'll get an empty response... :(
+
+3. Ok! lets insert carpark availability data: `docker run --env-file web.env carpark_web pg-update `
+
+## Running the tests
+1. `docker run --env-file web.env carpark_web go test -v ./...`
+
+#### Updating (optional)
+1. Download the carpark information on the web, place it in the data folder
+2. `docker run --env-file web.env carpark_web csv-import` will convert the geo format of the csv
+
+## Build with
 * golang
 * mux
 * docker-compose
 * postgis
 
-###### Prerequisite
-* docker
-
-###### Run
-1. `docker-compose up` will start 2 container one db and one web
-2. open browser and run the paste the below
-    ```
-    http://localhost:10000/carparks/nearest?latitude=1.37326&longitude=103.897&page=1&per_page=10
-    ```
-    you'll get an empty response...
-
-3. Ok lets insert carpark availability data: `docker run --env-file web.env carpark_web pg-update `
-
-###### Updating (optional)
-1. Download the carpark information on the web, place it in the data folder
-2. `docker run --env-file web.env carpark_web csv-import` will convert the geo format of the csv
-
-###### Reference
+## References
 
 https://tour.golang.org/
 
