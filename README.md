@@ -1,12 +1,6 @@
 # Carpark
 API that gives the nearest available carpark for a given points in the map. 
 
-## Getting Started
-The project is written in _golang_ and can be started using `go build && go run`,
-I would recommend using _goland_ from _intellij_ when importing this project manually. 
-
-For simplicity, this project comes with _golang_ base image for easy build and run.
-
 ### Structure
 ```
 .
@@ -17,6 +11,12 @@ For simplicity, this project comes with _golang_ base image for easy build and r
 ├── schema
 └── main.go
 ```
+## Getting Started
+The project is written in _golang_ and can be started using `go build && go run`,
+I would recommend using _goland_ from _intellij_ when importing this project manually. 
+
+For simplicity, this project comes with _golang_ base image for easy build and run.
+
 ### Postgres Schema
 * hdb_carpark_information
 * hdb_carpark_availability
@@ -46,7 +46,7 @@ Requires _postgres_ database which will be available once the
 docker run --env-file web.env carpark_web go test -v ./...
 ```
 
-#### Updating carpark information (optional)
+### Updating carpark information (optional)
 By default this project comes with the original carpark information
 1. Download the **hdb_carpark_information** on the gov site, place it in the _data_ folder
 2. `docker run --env-file web.env carpark_web csv-import` will convert the geo format of the csv
