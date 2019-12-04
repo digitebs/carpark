@@ -12,14 +12,15 @@ For simplicity, this project comes with _golang_ base image for easy build and r
 * docker
 
 ### Installing
-1. `docker-compose up` will start 2 container one db and one web
+1. `docker-compose up` will start 2 container one db and one web.
 2. Open browser and run the paste the below
     ```
     http://localhost:10000/carparks/nearest?latitude=1.37326&longitude=103.897&page=1&per_page=10
     ```
     you'll get an empty response... :(
 
-3. Ok! lets insert **hdb_carpark_availability** data: `docker run --env-file web.env carpark_web pg-update `
+3. Ok! lets insert **hdb_carpark_availability** data: `docker run --env-file web.env carpark_web pg-update ` 
+then try refreshing the browser. 
 
 ## Running the tests
 Requires postgres db which will be available once the db container is up
