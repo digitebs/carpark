@@ -1,3 +1,6 @@
+# Carpark
+API that gives the nearest carpark for a given points in the map. 
+
 ## Getting Started
 The project is written in _golang_ and can be started using `go build && go run`,
 I would recommend using _goland_ from _intellij_ when importing this project manually. 
@@ -17,13 +20,17 @@ For simplicity, this project comes with _golang_ base image for easy build and r
     ```
     http://localhost:10000/carparks/nearest?latitude=1.37326&longitude=103.897&page=1&per_page=10
     ```
-    you'll get an empty response... :(
+    You'll get an empty response... :(
 
-3. Ok! lets insert **hdb_carpark_availability** data: `docker run --env-file web.env carpark_web pg-update ` 
-then try refreshing the browser. 
+3. Ok! lets insert **hdb_carpark_availability** data
+    ```
+    docker run --env-file web.env carpark_web pg-update 
+    ``` 
+    Try refreshing the browser. 
 
 ## Running the tests
-Requires postgres db which will be available once the db container is up
+Requires _postgres_ database which will be available once the
+ database container is up
 
 ```
 docker run --env-file web.env carpark_web go test -v ./...
