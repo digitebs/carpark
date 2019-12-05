@@ -3,8 +3,9 @@ package repo
 
 import (
 	"fmt"
-	"github.com/go-pg/pg"
 	"os"
+
+	"github.com/go-pg/pg"
 )
 
 // Entity
@@ -61,8 +62,8 @@ func GetNearest(x float32, y float32, l int, o int) ([]HdbCarparkAvailability, e
 
 func init() {
 	url := os.Getenv("DATABASE_URL")
-	if len(url) == 0{
-		url = "postgres://docker:docker@192.168.1.6/gis?sslmode=disable"
+	if len(url) == 0 {
+		url = "postgres://docker:docker@localhost/gis?sslmode=disable"
 	}
 	opt, err := pg.ParseURL(url)
 	if err != nil {

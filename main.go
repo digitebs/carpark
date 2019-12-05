@@ -3,13 +3,15 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/iody/carpark/repo"
 	"log"
 	"net/http"
 	"strconv"
+
+	"github.com/gorilla/mux"
+	"github.com/iody/carpark/repo"
 )
 
+// Carpark ...
 type Carpark struct {
 	Address       string  `json:"address"`
 	Latitude      float32 `json:"latitude"`
