@@ -24,7 +24,11 @@ For simplicity, this project comes with _golang_ base image for easy build and r
 ### Prerequisites
 * docker
 
+#### Environment
+Modify web.env database url from _localhost_ to your actual host ip.
+
 ### Installing
+
 1. `docker-compose up` will start 2 container one db and one web.
 2. Open browser and run the paste the below
     ```
